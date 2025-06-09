@@ -2,7 +2,7 @@ import pytest
 
 from Diplom_1.praktikum.burger import Burger
 
-from Diplom_1.data import INGREDIENT_DATA, BUN_DATA, INGREDIENT_DATA_1
+from Diplom_1.data import INGREDIENT_DATA, BUN_DATA, INGREDIENT_DATA_1, EXPECTED_RECEIPT
 
 class TestBurger:
 
@@ -55,4 +55,4 @@ class TestBurger:
         burger.set_buns(bun)
         ingredient = ingredient_mock
         burger.add_ingredient(ingredient)
-        assert burger.get_receipt().endswith(str(burger.get_price()))
+        assert burger.get_receipt() == f'{EXPECTED_RECEIPT}{str(burger.get_price())}'
